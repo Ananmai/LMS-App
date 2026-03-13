@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const api = axios.create({
-    baseURL: process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000',
+    baseURL: process.env.NEXT_PUBLIC_API_URL || '',
     headers: {
         'Content-Type': 'application/json',
     },
@@ -35,7 +35,7 @@ api.interceptors.response.use(
                     throw error;
                 }
 
-                const res = await axios.post(`${process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000'}/api/auth/refresh`, {}, {
+                const res = await axios.post(`${process.env.NEXT_PUBLIC_API_URL || ''}/api/auth/refresh`, {}, {
                     withCredentials: true // send the HttpOnly cookie
                 });
 
