@@ -1,0 +1,156 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+
+@layer base {
+  :root {
+    --lms-primary: #0ea5e9;
+    --lms-primary-dark: #0284c7;
+    --lms-accent: #14b8a6;
+    --lms-accent2: #6366f1;
+    --lms-dark: #0f172a;
+    --lms-darker: #020617;
+    --lms-card-bg: #1e293b;
+    --lms-gradient: linear-gradient(135deg, #0f172a 0%, #1e3a5f 50%, #0f2744 100%);
+  }
+
+  html {
+    scroll-behavior: smooth;
+    @apply bg-white text-gray-900;
+    font-family: 'Inter', sans-serif;
+  }
+
+  body {
+    @apply antialiased;
+    font-family: 'Inter', sans-serif;
+  }
+
+  ::-webkit-scrollbar {
+    @apply w-2;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-slate-900;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-sky-700 rounded-full;
+  }
+}
+
+@layer components {
+  /* ===== NAVBAR ===== */
+  .kodemy-nav {
+    @apply sticky top-0 z-50 border-b border-white/10;
+    background: linear-gradient(90deg, #0f172a 0%, #1e3a5f 100%);
+  }
+
+  .kodemy-nav-light {
+    @apply sticky top-0 z-50 bg-white text-gray-900 border-b border-gray-200 shadow-sm;
+  }
+
+  /* ===== BUTTONS ===== */
+  .btn-kodemy-primary {
+    @apply font-bold px-6 py-2 rounded-lg transition-all duration-200 text-white;
+    background: linear-gradient(135deg, #0ea5e9, #14b8a6);
+  }
+
+  .btn-kodemy-primary:hover {
+    background: linear-gradient(135deg, #0284c7, #0d9488);
+    @apply shadow-lg shadow-sky-500/30 scale-[1.02];
+  }
+
+  .btn-kodemy-primary-light {
+    @apply font-bold px-6 py-2 rounded-lg transition-all duration-200 text-white;
+    background: linear-gradient(135deg, #0ea5e9, #6366f1);
+  }
+
+  .btn-kodemy-secondary {
+    @apply bg-white/10 backdrop-blur-md text-white hover:bg-white/20 font-bold px-6 py-2 rounded-lg border border-white/20 transition-all duration-200;
+  }
+
+  .btn-kodemy-outline {
+    @apply border border-white/30 text-white hover:bg-white/10 px-6 py-2 rounded-lg font-bold transition-all duration-200;
+  }
+
+  .btn-kodemy-ghost {
+    @apply text-white/70 hover:text-white transition-colors duration-200;
+  }
+
+  /* ===== HERO ===== */
+  .kodemy-hero {
+    @apply text-white pt-24 pb-32 relative overflow-hidden;
+    background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 60%, #164e63 100%);
+  }
+
+  .kodemy-hero::before {
+    content: '';
+    @apply absolute -top-32 -right-32 w-96 h-96 rounded-full opacity-20 blur-3xl pointer-events-none;
+    background: radial-gradient(circle, #0ea5e9, #14b8a6);
+  }
+
+  .kodemy-hero::after {
+    content: '';
+    @apply absolute bottom-0 left-0 w-80 h-80 rounded-full opacity-10 blur-3xl pointer-events-none;
+    background: radial-gradient(circle, #6366f1, #8b5cf6);
+  }
+
+  /* ===== CARDS ===== */
+  .kodemy-card {
+    @apply bg-white border border-gray-100 rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1;
+  }
+
+  /* ===== INPUTS ===== */
+  .kodemy-input {
+    @apply w-full bg-white border border-gray-300 text-gray-900 rounded-lg px-4 py-3 focus:outline-none focus:border-sky-500 focus:ring-2 focus:ring-sky-500/20 transition-all duration-200;
+  }
+
+  /* ===== AI BADGE ===== */
+  .kodemy-badge-ai {
+    @apply inline-flex items-center gap-1.5 px-3 py-1 rounded-lg text-xs font-bold text-white border border-sky-400/30;
+    background: linear-gradient(135deg, rgba(14,165,233,0.2), rgba(20,184,166,0.2));
+  }
+
+  .kodemy-badge-ai-light {
+    @apply inline-flex items-center gap-1.5 px-3 py-1 rounded-lg text-xs font-bold border;
+    background: linear-gradient(135deg, #eff6ff, #f0fdf4);
+    @apply text-sky-700 border-sky-200;
+  }
+
+  /* ===== STATS ===== */
+  .kodemy-stat-box {
+    @apply border backdrop-blur-md rounded-2xl p-5 text-center transition-all duration-300 hover:-translate-y-1;
+    background: rgba(255,255,255,0.07);
+    border-color: rgba(255,255,255,0.15);
+  }
+
+  /* ===== CATEGORY BADGE ===== */
+  .lms-category-badge {
+    @apply text-[10px] font-bold uppercase tracking-widest px-2.5 py-1 rounded-full;
+  }
+
+  /* ===== SECTION HEADING ===== */
+  .lms-section-title {
+    @apply text-4xl font-extrabold text-gray-900 mb-2;
+    background: linear-gradient(135deg, #0f172a, #0ea5e9);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .lms-glow-sky {
+    box-shadow: 0 0 30px rgba(14, 165, 233, 0.3);
+  }
+
+  .lms-glow-teal {
+    box-shadow: 0 0 30px rgba(20, 184, 166, 0.3);
+  }
+}
