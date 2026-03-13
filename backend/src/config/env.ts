@@ -11,6 +11,7 @@ export const ENV = {
     DB_USER: process.env.DB_USER || 'root',
     DB_PASSWORD: process.env.DB_PASSWORD || '',
     DB_NAME: process.env.DB_NAME || 'lms_db',
+    DATABASE_URL: process.env.DATABASE_URL, 
     JWT_SECRET: process.env.JWT_SECRET || 'secret_key_123',
     REFRESH_TOKEN_SECRET: process.env.REFRESH_TOKEN_SECRET || 'refresh_secret_456',
     FRONTEND_URL: process.env.FRONTEND_URL || 'http://localhost:3000',

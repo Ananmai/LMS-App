@@ -16,7 +16,14 @@ const app = express();
 
 // Standard Middleware
 app.use(cors({
-    origin: ENV.FRONTEND_URL,
+    origin: (origin, callback) => {
+        const allowedOrigins = [ENV.FRONTEND_URL, 'https://ananmai-lms-app.vercel.app'];
+        if (!origin || allowedOrigins.includes(origin) || origin.endsWith('.vercel.app')) {
+            callback(null, true);
+        } else {
+            callback(new Error('Not allowed by CORS'));
+        }
+    },
     credentials: true,
 }));
 app.use(express.json());
