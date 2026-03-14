@@ -25,7 +25,7 @@ function RegisterForm() {
             const res = await authApi.register({ name, email, password });
             login(res.data.token, res.data.user);
 
-            const redirectPath = searchParams.get('redirect');
+            const redirectPath = searchParams?.get('redirect');
             if (redirectPath) {
                 router.push(redirectPath);
             } else {
