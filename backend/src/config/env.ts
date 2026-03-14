@@ -1,7 +1,10 @@
 import dotenv from 'dotenv';
 import path from 'path';
 
-dotenv.config({ path: path.resolve(__dirname, '../../.env') });
+// Load local .env only if not in production/Vercel
+if (process.env.NODE_ENV !== 'production') {
+    dotenv.config({ path: path.resolve(process.cwd(), '.env') });
+}
 
 export const ENV = {
     PORT: process.env.PORT || '5000',
