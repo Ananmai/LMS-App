@@ -46,11 +46,16 @@ const pool = mysql.createPool(poolOptions);
 // Test the connection immediately so we know if it fails in server logs
 pool.getConnection()
     .then((conn) => {
-        console.log("Database connected successfully!");
+        console.log("DATABASE_CONNECTED: Successfully established connection to MySQL");
         conn.release();
     })
     .catch((err) => {
-        console.error("CRITICAL: Database connection failed:", err.message);
+        console.error("DATABASE_CONNECTION_ERROR:", {
+            message: err.message,
+            code: err.code,
+            errno: err.errno,
+            sqlState: err.sqlState
+        });
     });
 
 export default pool;
