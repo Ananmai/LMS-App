@@ -51,8 +51,8 @@ function getYouTubeId(url: string) {
 
 export default function VideoViewerPage() {
     const params = useParams();
-    const subjectId = parseInt(params.subjectId as string);
-    const videoId = parseInt(params.videoId as string);
+    const subjectId = parseInt(params?.subjectId as string);
+    const videoId = parseInt(params?.videoId as string);
     const router = useRouter();
     const { isAuthenticated, loading: authLoading } = useAuth();
 

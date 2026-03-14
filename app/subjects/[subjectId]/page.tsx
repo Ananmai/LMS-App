@@ -40,7 +40,7 @@ interface Subject {
 
 export default function SubjectDetailPage() {
     const params = useParams();
-    const subjectId = params.subjectId as string;
+    const subjectId = params?.subjectId as string;
     const router = useRouter();
     const { isAuthenticated, user } = useAuth();
     const { addToCart, items, setIsOpen } = useCart();
